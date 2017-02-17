@@ -6,10 +6,21 @@ print pdfReader.numPages
 
 
 for i in range(pdfReader.numPages):
-    pageObj = pdfReader.getPage(0)
+    pageObj = pdfReader.getPage(i)
     txt = pageObj.extractText()
     
-    print txt
+    path = 'testfile_'+str(i)+'.txt'
+    print path
+    file = open(path,”a") 
+    
+    uu = txt.decode('utf8')
+    s = uu.encode('cp1250')
+    
+    file.write(s) 
+
+ 
+    file.close() 
+#    print txt
 
 
 
