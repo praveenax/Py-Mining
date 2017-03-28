@@ -1,0 +1,31 @@
+{
+  "sources": [
+    {
+      "web": "http://quotationsbook.com"
+    }
+  ], 
+  "description": "Data exposed: at least 42,000 famous quotations with author and subject\r\nSize of dump and data set: size?", 
+  "license": {
+    "url": "http://www.opendefinition.org/licenses/cc-by", 
+    "type": "cc-by", 
+    "title": "Creative Commons Attribution"
+  }, 
+  "title": "Quotations Book", 
+  "keywords": [
+    "broken_link", 
+    "ckanupload.esw.200910", 
+    "format-rdf", 
+    "linkeddata", 
+    "literature", 
+    "lod", 
+    "lodcloud.nolinks", 
+    "lodcloud.unconnected", 
+    "rdf"
+  ], 
+  "resources": [
+    {
+      "url": "http://diary.quotationsbook.com/2007/05/22/we-have-freed-wisdom/"
+    }
+  ], 
+  "name": "quotations_book"
+}

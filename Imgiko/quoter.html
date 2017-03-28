@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!--    <link href="https://fonts.googleapis.com/css?family=Shrikhand|Lobster|Nothing+You+Could+Do|Patrick+Hand" rel="stylesheet">-->
+    <!--    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+
+
+    <link href="https://fonts.googleapis.com/css?family=Baumans|Lobster" rel="stylesheet">
+    <style>
+        #picrender {
+            margin: 10px;
+            background: #16a085;
+            background: #8e44ad;
+            background: #f1c40f;
+            width: 600px;
+            height: 600px;
+            font-family: 'Lobster', cursive;
+            font-family: 'Baumans', cursive;
+            color: #fff;
+            color: #000;
+            font-size: 70px;
+            padding: 30px;
+            word-wrap: break-word;
+            position: relative;
+            display: inline-block;
+            float: left;
+        }
+        
+        #name {
+            text-align: right;
+            font-size: 40px;
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+            font-family: 'Lobster', cursive;
+        }
+        
+        #icon {
+            transform: rotateZ(111deg);
+            font-size: 440px;
+            display: block;
+            color: rgba(255, 255, 255, 0.51);
+            /* background-color: white; */
+            position: absolute;
+            bottom: -20%;
+            right: 0%;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div id="picrender">
+       <span id="text_rendered">
+           There is always a #way to get from where you are to where you want to be
+       </span>
+        
+
+
+        <div id="icon">
+            <i class="fa fa-arrow-left" aria-hidden="true"></i>
+
+        </div>
+        <div id="name">
+            ~imgiko
+        </div>
+
+    </div>
+<br>
+    <button id="btnSave" class="btn btn-default">
+        
+        Emulate Canvas
+    </button>
+    
+    <br><br>
+    
+<!--    <input type="text" id="" placeholder="Enter BG Color Value" class="form-control" style="    width: 500px;">-->
+    <br>
+    <input type="text" id="textData" placeholder="Enter Text Value" class="form-control"  style="    width: 500px;">
+    <br>
+    <select name="" id="bgcolor" class="col-md-6">
+        <option value="#3498db">Peter River</option>
+        <option value="#9b59b6">Amethyst</option>
+        <option value="#f1c40f">Sun flower</option>
+        <option value=""></option>
+        <option value=""></option>
+        <option value=""></option>
+        <option value=""></option>
+        <option value=""></option>
+        
+    </select>
+    <br>
+    
+    <select name="" id="fgcolor" class="col-md-6" style="margin-bottom:40px;">
+        <option value="#fff">White</option>
+        <option value="#000">Black</option>
+        
+        
+    </select>
+    
+    <br><br>
+    
+    <button id="renderItem" class="btn btn-default">
+        Render
+    </button>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
+    <script src="https://github.com/niklasvh/html2canvas/releases/download/0.4.1/html2canvas.js"></script>
+    <script src="https://raw.githubusercontent.com/eligrey/FileSaver.js/master/FileSaver.js"></script>
+    <script>
+        $(function() {
+            
+//            $("#bgcolor").val($("#picrender").css("background"));
+            $("#textData").val($("#text_rendered").html());
+            
+            
+            $("#btnSave").click(function() {
+                html2canvas($("#picrender"), {
+                    onrendered: function(canvas) {
+                        theCanvas = canvas;
+                        document.body.appendChild(canvas);
+
+                        canvas.toBlob(function(blob) {
+                            saveAs(blob, "Dashboard.png");
+                        });
+                    }
+                });
+            });
+            
+            
+            $("#renderItem").click(function() {
+               $("#picrender").css("background-color",$("#bgcolor").val());
+               $("#picrender").css("color",$("#fgcolor").val());
+                 $("#text_rendered").html($("#textData").val());
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>
